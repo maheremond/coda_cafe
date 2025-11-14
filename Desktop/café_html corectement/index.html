@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Douceurs & Saveurs - Café Délicieux</title>
+
+    <!-- ici je charge les polices -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sansita+Swashed:wght@400;600&family=Poppins:wght@400;500;600&display=swap"
+            rel="stylesheet"
+    />
+
+    <!-- ici je mets mon fichier de style -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<!-- ici c'est le header de la page -->
+<header class="header">
+    <div class="container header-container">
+        <img src="img/modrino-2-removebg-preview-1.png" alt="Logo" class="logo" />
+        <nav class="nav">
+            <a href="#accueil" class="active">Accueil</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+            <a href="#services">Services</a>
+        </nav>
+        <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<!-- grosse partie en haut avec le titre -->
+<section class="hero">
+    <div class="hero-content">
+        <p class="subtitle">Café Délicieux</p>
+        <h1 class="title">Douceurs &amp; Saveurs</h1>
+        <a href="#produits" class="btn">Commander</a>
+    </div>
+</section>
+
+<main>
+    <!-- section avec les produits principaux -->
+    <section class="products-section" id="produits">
+        <h2 class="section-title">Nos Tops Produits</h2>
+        <div class="products-grid">
+            <!-- premier produit : pain complet -->
+            <article class="product-card">
+                <div class="product-image-container">
+                    <img src="img/pain1.png" alt="Pain complet artisanal" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <p class="product-price">40€</p>
+                        <button class="product-info-btn" title="Pain complet artisanal fait maison avec des graines et céréales complètes. Riche en fibres et savoureux.">
+                            <span>i</span>
+                        </button>
+                    </div>
+                    <div class="product-footer">
+                        <h3 class="product-title">Pain complet</h3>
+                        <button class="product-add-btn">Ajouter</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- deuxième produit : pâtisserie feuilletée -->
+            <article class="product-card">
+                <div class="product-image-container">
+                    <img src="img/gateau1.png" alt="Pâtisserie feuilletée" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <p class="product-price">40€</p>
+                        <button class="product-info-btn" title="Délicieuse pâtisserie feuilletée dorée et croustillante, préparée selon la tradition française.">
+                            <span>i</span>
+                        </button>
+                    </div>
+                    <div class="product-footer">
+                        <h3 class="product-title">Pâtisserie feuilletée</h3>
+                        <button class="product-add-btn">Ajouter</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3eme produit : baguette de campagne -->
+            <article class="product-card">
+                <div class="product-image-container">
+                    <img src="img/240-f-704728810-jffkbwzhu3u4roedaauutrv7ycnawnwm-removebg-preview-1.png" alt="Baguette de campagne" class="rotated" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <p class="product-price">40€</p>
+                        <button class="product-info-btn" title="Baguette de campagne traditionnelle à la croûte dorée et à la mie moelleuse. Cuite au four à pierre.">
+                            <span>i</span>
+                        </button>
+                    </div>
+                    <div class="product-footer">
+                        <h3 class="product-title">Baguette de campagne</h3>
+                        <button class="product-add-btn">Ajouter</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4eme produit : miche de pain blanc -->
+            <article class="product-card">
+                <div class="product-image-container">
+                    <img src="img/240-f-127988957-bwuptcolkrtyrpwivruskpg4ln3el6nn-removebg-preview-1.png" alt="Miche de pain blanc" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <p class="product-price">40€</p>
+                        <button class="product-info-btn" title="Miche de pain blanc moelleux et aéré, parfait pour accompagner tous vos repas.">
+                            <span>i</span>
+                        </button>
+                    </div>
+                    <div class="product-footer">
+                        <h3 class="product-title">Miche de pain blanc</h3>
+                        <button class="product-add-btn">Ajouter</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5eme produit : gateau pate feuilletee -->
+            <article class="product-card">
+                <div class="product-image-container">
+                    <img src="img/240-f-811650375-gh9ldts3v7gyr5bjyfgedy8d6c3mmr4o-removebg-preview-1.png" alt="Gâteau pâte feuilletée" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <p class="product-price">40€</p>
+                        <button class="product-info-btn" title="Gâteau feuilleté léger et croustillant, garni de crème pâtissière onctueuse.">
+                            <span>i</span>
+                        </button>
+                    </div>
+                    <div class="product-footer">
+                        <h3 class="product-title">Gâteau pâte feuilletée</h3>
+                        <button class="product-add-btn">Ajouter</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 6eme produit : miche de pain complet -->
+            <article class="product-card">
+                <div class="product-image-container">
+                    <img src="img/240-f-292903339-fwmo8c8rqcpvcqeaphkvvnmzmubf1cxw-removebg-preview-1.png" alt="Miche de pain complet" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <p class="product-price">40€</p>
+                        <button class="product-info-btn" title="Miche de pain complet aux céréales, riche en nutriments et au goût authentique.">
+                            <span>i</span>
+                        </button>
+                    </div>
+                    <div class="product-footer">
+                        <h3 class="product-title">Miche de pain complet</h3>
+                        <button class="product-add-btn">Ajouter</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- section avec la promo -->
+    <section class="section promo">
+        <div class="promo-content">
+            <h2>20% de Réduction sur la première commande</h2>
+            <p>Profitez de cette offre pour découvrir nos plus beaux délices !</p>
+            <a href="#commande" class="btn">En savoir plus</a>
+        </div>
+    </section>
+
+    <!-- section decouvrir avec les images -->
+    <section class="section decouvrir" id="decouvrir">
+        <h2 class="section-title">Découvrir</h2>
+        <nav class="decouvrir-nav">
+            <ul class="decouvrir-menu">
+                <li><a href="#gateaux" class="active">Gâteaux</a></li>
+                <li><a href="#muffins">Muffins</a></li>
+                <li><a href="#croissant">Croissant</a></li>
+                <li><a href="#pains">Pains</a></li>
+                <li><a href="#tartes">Tartes</a></li>
+            </ul>
+            <div class="menu-underline"></div>
+        </nav>
+        <div class="gallery">
+            <img src="img/rectangle-20.png" alt="Assortiment" />
+            <img src="img/rectangle-21.png" alt="Viennoiseries" />
+            <img src="img/rectangle-22.png" alt="Pains" />
+            <img src="img/rectangle-23.png" alt="Gâteaux" />
+            <img src="img/rectangle-24.png" alt="Tartes" />
+            <img src="img/rectangle-25.png" alt="Spécialités" />
+        </div>
+    </section>
+
+    <!-- section a propos -->
+    <section class="section about" id="apropos">
+        <div class="about-content">
+            <h2>A propos</h2>
+            <p>
+                Un café moderne qui respecte les recettes traditionnelles en vous
+                proposant du "fait maison".
+            </p>
+            <a href="#histoire" class="btn">Lire plus</a>
+        </div>
+    </section>
+
+    <!-- section petits plaisirs -->
+    <section class="section plaisirs">
+        <h2 class="section-title">Petits Plaisirs</h2>
+        <div class="plaisirs-grid">
+            <div class="plaisir-card">
+                <img src="img/rectangle-156.png" alt="Pâte feuilletée" />
+                <h3>Pâte feuilletée</h3>
+                <p>8€</p>
+            </div>
+            <div class="plaisir-card">
+                <img src="img/rectangle-153.png" alt="Donuts" />
+                <h3>Donuts</h3>
+                <p>8€</p>
+            </div>
+            <div class="plaisir-card">
+                <img src="img/rectangle-154.png" alt="Brownies" />
+                <h3>Brownies</h3>
+                <p>8€</p>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- le bas du site (footer) -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- ici il y a le logo et les reseaux du bas -->
+        <div class="footer-header">
+            <!-- logo du footer a gauche -->
+            <img src="img/modrino-2-removebg-preview-1.png" alt="Logo" class="footer-logo">
+
+            <!-- les reseaux sociaux a droite -->
+            <div class="footer-social-section">
+                <p class="footer-social-title">Suivez-nous</p>
+                <div class="footer-social">
+                    <img src="img/vector.svg" alt="Facebook">
+                    <img src="img/pinterest.svg" alt="Pinterest">
+                    <img src="img/whatsapp.svg" alt="Whatsapp">
+                    <img src="img/instagram.svg" alt="Instagram">
+                </div>
+            </div>
+        </div>
+
+        <!-- petite ligne qui coupe le haut et le bas -->
+        <div class="footer-divider"></div>
+
+        <!-- colonnes avec les infos en bas -->
+        <div class="footer-columns">
+
+            <!-- colonne a propos -->
+            <div class="footer-column">
+                <h4>A propos</h4>
+                <p>02 38 00 00 00</p>
+                <p>bakery@coda.school</p>
+                <p>24 Rue Jeanne d'Arc</p>
+                <p>45000 Orléans</p>
+            </div>
+
+            <!-- colonne avec les liens -->
+            <div class="footer-column">
+                <h4>Explorer</h4>
+                <a href="#accueil">Accueil</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+                <a href="#services">Services</a>
+            </div>
+
+            <!-- colonne avec les petites actus -->
+            <div class="footer-column">
+                <h4>Actualité</h4>
+
+                <!-- premiere actu -->
+                <div class="footer-news-item">
+                    <img src="img/rectangle-158.png" alt="Actu">
+                    <div class="footer-news-text">
+                        <p class="date">14 juin 2024</p>
+                        <p class="title">Nouveau délice</p>
+                    </div>
+                </div>
+
+                <!-- deuxieme actu -->
+                <div class="footer-news-item">
+                    <img src="img/rectangle-157.png" alt="Actu">
+                    <div class="footer-news-text">
+                        <p class="date">14 juin 2024</p>
+                        <p class="title">Pain au raisin</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- texte tout en bas du site -->
+        <p class="footer-bottom">© 2025 Douceurs & Saveurs. Tous droits réservés</p>
+
+    </div>
+</footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

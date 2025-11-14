@@ -1,0 +1,911 @@
+    /* petit reset de base */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: "Inter", sans-serif;
+        background-color: #fff;
+        color: #000;
+    }
+    img {
+        width: 100%;
+        display: block;
+    }
+    html {
+        height: 100%;
+    }
+
+    /* styles du header en haut (mobile en version de base) */
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 0.5rem 5%;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 101;
+    }
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        width: 90px;
+        height: auto;
+    }
+    .nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 100;
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    .nav a {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 1rem;
+    }
+    .nav a:hover,
+    .nav a.active {
+        color: #e9bd8c;
+    }
+
+    .nav.active {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* menu burger quand on est sur tel (de base en mobile) */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        position: relative;
+        z-index: 102;
+    }
+    .menu-toggle span {
+        width: 28px;
+        height: 3px;
+        background-color: #000;
+        border-radius: 2px;
+        transition: all 0.3s;
+    }
+
+    /* ici je fais la petite anim du burger */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* je garde la croix en blanc quand le menu est ouvert */
+    .menu-toggle.active span {
+        background-color: #fff !important;
+    }
+
+    /* grosse section hero avec le fond */
+    .hero {
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 8%;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Pseudo-élément pour l'image de fond inversée */
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("img/rectangle-10.png") no-repeat center center;
+        background-size: cover;
+        transform: scaleX(-1);
+        z-index: -1;
+    }
+
+    .hero-content {
+        max-width: 550px;
+        z-index: 5;
+    }
+
+    .subtitle {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        color: #e1a96b;
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+    .title {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 6rem;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+    .btn {
+        display: inline-block;
+        background-color: #933c24;
+        color: #fff;
+        padding: 1rem 2.5rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        transition: background 0.3s;
+    }
+    .btn:hover {
+        background-color: #7d351e;
+    }
+
+    /* container general pour centrer tout */
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* styles generaux pour les sections */
+    .section {
+        padding: 5rem 8%;
+        text-align: center;
+    }
+    .section-title {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+        color: #000;
+    }
+
+    /* partie avec les produits */
+    .products-section {
+        padding: 80px 5%;
+        background-color: #ffffff;
+    }
+
+    .section-title {
+        font-family: "Sansita Swashed", sans-serif;
+        font-weight: 600;
+        color: #000000;
+        font-size: 64px;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 1120px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        background-image: url(./img/rectangle-75.png);
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        min-height: 411px;
+    }
+
+    .product-image-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .product-image-container img {
+        max-width: 100%;
+        max-height: 250px;
+        object-fit: contain;
+    }
+
+    .product-image-container img.rotated {
+        transform: rotate(-15deg);
+    }
+
+    .product-info {
+        margin-top: auto;
+    }
+
+    .product-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .product-price {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .product-info-btn {
+        width: 39px;
+        height: 39px;
+        border-radius: 50%;
+        border: 1px solid #ffffff;
+        background: transparent;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        transition: border-color 0.3s;
+        position: relative;
+    }
+
+    .product-info-btn:hover {
+        border-color: #e9bd8c;
+    }
+
+    .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .product-title {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        color: #ffffff;
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .product-add-btn {
+        padding: 16px 24px;
+        border-radius: 4px;
+        background-color: #933c24;
+        border: none;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .product-add-btn:hover {
+        transform: translateY(-2px);
+    }
+
+
+    /* section promo avec la reduc */
+    .promo {
+        position: relative;
+        color: #fff;
+        padding: 0;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .promo::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("img/rectangle-45.png") no-repeat center center;
+        background-size: cover;
+        z-index: 0;
+    }
+
+    .promo::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .promo-content {
+        max-width: 1050px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 5rem 8%;
+    }
+    .promo-content h2 {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 3.75rem;
+        margin-bottom: 2.25rem;
+        line-height: 1.3;
+        color: #933C24;
+    }
+    .promo-content p {
+        font-size: 1.65rem;
+        margin-bottom: 3rem;
+        line-height: 1.6;
+    }
+
+    .promo .btn {
+        transition: all 0.3s ease;
+    }
+
+    .promo .btn:hover {
+        background-color: #7d351e;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(147, 60, 36, 0.4);
+    }
+
+    /* galerie d images a faire defiler */
+    .decouvrir {
+        background-color: #fff;
+    }
+
+    .decouvrir-nav {
+        position: relative;
+        margin: 0 auto 60px;
+        max-width: 1200px;
+    }
+
+    .decouvrir-menu {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    .decouvrir-menu li {
+        display: inline;
+    }
+
+    .decouvrir-menu a {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: #5d5d5d;
+        font-size: 24px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.3s;
+        position: relative;
+    }
+
+    .decouvrir-menu a:hover,
+    .decouvrir-menu a.active {
+        color: #933c24;
+    }
+
+    .menu-underline {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 107px;
+        height: 6px;
+        display: none; /* de base je ne l affiche pas en mobile */
+        background-color: #933c24;
+        border-radius: 20px;
+        transition: left 0.3s ease;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr; /* de base je pars sur 1 colonne (mobile) */
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .gallery img {
+        border-radius: 1rem;
+        object-fit: cover;
+        width: 100%;
+        height: 250px;
+        transition: transform 0.3s;
+    }
+    .gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    /* section a propos avec du texte */
+    .about {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("img/rectangle-41.png") no-repeat center center / cover;
+        color: #fff;
+        padding: 5rem 8%;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .about-content {
+        max-width: 600px;
+        text-align: center;
+    }
+    .about-content h2 {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+    }
+    .about-content p {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        color: #B9B9B9;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    /* petites cartes pour les petits plaisirs */
+    .plaisirs {
+        background-color: #fff;
+    }
+    .plaisirs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .plaisir-card {
+        text-align: center;
+    }
+    .plaisir-card img {
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+        object-fit: cover;
+        height: 300px;
+    }
+    .plaisir-card h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+    .plaisir-card p {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    /* gros bloc du bas (footer) */
+    .footer {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("img/rectangle-75.png") no-repeat center center / cover;
+        color: #fff;
+        padding: 80px 5%;
+        font-family: "Inter", sans-serif;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* haut du footer avec logo et reseaux */
+    .footer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    /* image du logo a gauche */
+    .footer-logo {
+        width: 240px;
+        display: block;
+    }
+
+    /* zone avec les reseaux a droite */
+    .footer-social-section {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* petit titre suivez nous */
+    .footer-social-title {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: #e9bd8c;
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 25px;
+    }
+
+    .footer-social img {
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .footer-social img:hover {
+        transform: scale(1.15);
+    }
+
+    /* petite ligne qui coupe le footer */
+    .footer-divider {
+        width: 100%;
+        max-width: 900px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 40px auto;
+    }
+
+    /* grille du footer (de base je pense mobile) */
+    .footer-columns {
+        display: grid;
+        grid-template-columns: 1fr; /* base mobile = 1 colonne */
+        gap: 40px;
+        max-width: 1100px;
+        margin: 0 auto 40px;
+        text-align: center;
+    }
+
+    /* style pour les titres dans le bas */
+    .footer-column h4 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 28px;
+        color: #e9bd8c;
+        margin-bottom: 20px;
+    }
+
+    /* texte et liens sous les titres */
+    .footer-column p,
+    .footer-column a {
+        color: #ffffff;
+        font-size: 18px;
+        margin-bottom: 12px;
+        text-decoration: none;
+        display: block;
+        line-height: 1.6;
+    }
+
+    .footer-column a {
+        transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+        color: #e9bd8c;
+    }
+
+    /* style pour les petites actus */
+    .footer-news-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .footer-news-item img {
+        width: 90px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    .footer-news-text .date {
+        font-size: 16px;
+        color: #cfcfcf;
+        margin-bottom: 5px;
+    }
+
+    .footer-news-text .title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    /* le texte tout en bas du site */
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        color: #bfbfbf;
+        font-size: 16px;
+    }
+
+    /* partie responsive generale */
+    @media (max-width: 1024px) {
+        .hero {
+            padding: 0 5%;
+        }
+        .title {
+            font-size: 3.2rem;
+        }
+
+        .products-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* grille produits quand l'ecran est bien large (bureau) */
+    @media (min-width: 1025px) {
+        .products-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+
+    @media (max-width: 768px) {
+        /* header en mobile est gere en base (mobile first) */
+
+        /* hero version mobile */
+        .hero {
+            justify-content: flex-start;
+            align-items: center;
+            text-align: left;
+            padding: 5rem 6% 2rem;
+            min-height: 100vh;
+            height: auto;
+        }
+
+        /* ici je gere l image de fond en mobile */
+        .hero::before {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            min-height: 100%;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: scroll;
+            transform: scaleX(-1);
+        }
+
+        .hero-content {
+            max-width: 100%;
+            position: relative;
+        }
+
+        .title {
+            font-size: 6rem;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 3rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        .section {
+            padding: 3rem 5%;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+        }
+
+        .products-grid,
+        .produits-grid,
+        .gallery,
+        .plaisirs-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        /* menu decouvrir en version mobile */
+        .decouvrir-menu {
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .decouvrir-menu a {
+            font-size: 18px;
+        }
+
+        .menu-underline {
+            display: none;
+        }
+
+        /* footer en mode mobile */
+        .footer-header {
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .footer-logo {
+            margin: 0 auto;
+        }
+
+        .footer-social-section {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-social {
+            justify-content: center;
+        }
+
+        /* les colonnes du footer sont deja en 1 colonne en base, ici je touche juste aux tailles de texte et au centrage des actus */
+        .footer-column h4 {
+            font-size: 24px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 16px;
+        }
+
+        .footer-news-item {
+            justify-content: center;
+        }
+
+        /* promo en version mobile */
+        .promo-content h2 {
+            font-size: 2.5rem;
+        }
+
+        .promo-content p {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header {
+            padding: 0.5rem 4%;
+        }
+
+        .logo {
+            width: 80px;
+        }
+
+        .hero {
+            padding: 5rem 5% 2rem;
+        }
+
+        .title {
+            font-size: 3rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            font-size: 0.9rem;
+        }
+
+        .section {
+            padding: 2.5rem 4%;
+        }
+    }
+
+    /* header qui se cache en douceur */
+    .header {
+        transition: transform 0.4s ease;
+    }
+
+    /* quand on descend le header monte vers le haut */
+    .header.hide {
+        transform: translateY(-100%);
+    }
+
+    /* ici je recentre le menu sur grand ecran et je repasse en mode bureau */
+    @media (min-width: 769px) {
+        .header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .logo {
+            width: 180px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .menu-toggle span {
+            background-color: #fff;
+        }
+
+        .nav,
+        .nav.active {
+            position: absolute;
+            left: 35%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: auto;
+            width: auto;
+            background: transparent;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            z-index: 101;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* en bureau je montre la barre rouge sous decouvrir */
+        .menu-underline {
+            display: block;
+        }
+
+        /* en bureau je repasse la galerie sur 3 colonnes */
+        .gallery {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+
+
+
+    /* petit rappel responsive pour le footer : ici je garde juste l alignement des actus en dessous de 900px */
+
+    @media (max-width: 900px) {
+        .footer-news-item {
+            justify-content: center;
+        }
+    }
+
+    /* en tres grand ecran je repasse le footer en 3 colonnes comme dans la maquette */
+    @media (min-width: 901px) {
+        .footer-columns {
+            grid-template-columns: repeat(3, 1fr);
+            text-align: left;
+        }
+    }
